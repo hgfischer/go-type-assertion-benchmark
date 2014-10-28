@@ -2,7 +2,7 @@
 
 Naive performance test of doing type assertion using:
 
- * The native way
+ * The static way
 
 or...
 
