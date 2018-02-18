@@ -14,6 +14,12 @@ func (c *FloatCol) AppendReflectionTypeAssertion(row interface{}) error {
 		c.rows = append(c.rows, float64(rv.Int()))
 	case reflect.Float32, reflect.Float64:
 		c.rows = append(c.rows, rv.Float())
+	case reflect.String:
+		num, err := strconv.ParseFloat(rv.String(), 64)
+		if err != nil {
+			return err
+		}
+		c.rows = append(c.rows, num)
 	default:
 		num, err := strconv.ParseFloat(rv.String(), 64)
 		if err != nil {
