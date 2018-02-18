@@ -31,6 +31,12 @@ func (c *FloatCol) AppendNativeTypeAssertion(row interface{}) error {
 		c.rows = append(c.rows, float64(value))
 	case uint64:
 		c.rows = append(c.rows, float64(value))
+	case string:
+		num, err := strconv.ParseFloat(value, 64)
+		if err != nil {
+			return err
+		}
+		c.rows = append(c.rows, num)
 	default:
 		num, err := strconv.ParseFloat(fmt.Sprint(row), 64)
 		if err != nil {

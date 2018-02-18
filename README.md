@@ -1,6 +1,6 @@
 # Introduction
 
-Naive performance test of doing type assertion using:
+Native performance test of doing type assertion using:
 
  * The static way
 
@@ -11,8 +11,10 @@ or...
 # Results
 
 ```
-BenchmarkAppendNativeTypeAssertion       5000000           666 ns/op
-BenchmarkAppendReflectionTypeAssertion   5000000           529 ns/op
+goos: darwin
+goarch: amd64
+BenchmarkAppendNativeTypeAssertion-8       10000000       129 ns/op      56 B/op       3 allocs/op
+BenchmarkAppendReflectionTypeAssertion-8   10000000       144 ns/op      56 B/op       3 allocs/op
 ```
 
 # Thanks to
